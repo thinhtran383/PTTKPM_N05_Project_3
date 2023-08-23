@@ -1,10 +1,10 @@
-package com.example.food_ordering;
+package com.example.foodordering;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FoodOrderingApplicationTests {
+class BackEndApplicationTests {
 
     @Test
     void contextLoads() {
