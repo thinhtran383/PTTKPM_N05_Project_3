@@ -3,13 +3,17 @@ package com.example.foodordering.models;
 import com.example.foodordering.constant.EmployeeRole;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "Employees")
 @RequiredArgsConstructor
 @Data
+@AllArgsConstructor
+@ToString
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

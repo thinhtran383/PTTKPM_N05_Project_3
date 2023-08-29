@@ -2,15 +2,15 @@ package com.example.foodordering.models;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.Cleanup;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "MenuItems")
 @RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
 @Data
 public class MenuItem {
     @Id

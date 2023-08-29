@@ -2,13 +2,13 @@ package com.example.foodordering.models;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.Cleanup;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "Orders")
 @RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
 @Data
 public class Order {
     @Id

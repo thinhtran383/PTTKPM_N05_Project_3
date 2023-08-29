@@ -3,14 +3,18 @@ package com.example.foodordering.models;
 import com.example.foodordering.constant.ReservationStatus;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "reservations")
 @RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
 @Data
 public class Reservation {
     @Id

@@ -2,8 +2,10 @@ package com.example.foodordering.models;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Revenues")
 @RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
 @Data
 public class Revenue {
     @Id
