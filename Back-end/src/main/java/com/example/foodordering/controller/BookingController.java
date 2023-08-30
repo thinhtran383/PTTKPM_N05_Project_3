@@ -7,10 +7,7 @@ import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.foodordering.constant.ReservationStatus;
 import com.example.foodordering.models.Customer;
@@ -20,6 +17,7 @@ import com.example.foodordering.repositories.ReservationRepository;
 
 @RestController
 @RequestMapping("/api/booking")
+@CrossOrigin(origins = "https://localhost:3000")
 public class BookingController {
   @Autowired
   private BookingService bookingService;
