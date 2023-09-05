@@ -1,7 +1,8 @@
 package com.example.foodordering.constant;
 
 public enum TableStatus {
-    AVAILABLE,
+
+    Available,
     RESERVED,
     OCCUPIED
 }
