@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,7 +28,7 @@ public class BookingService {
             Customer customer = saveOrUpdateCustomer(reservation.getCustomer());
 
             reservation.setCustomer(customer);
-            reservation.setStatus(ReservationStatus.PENDING);
+            reservation.setStatus(ReservationStatus.Pending);
             reservationRepository.save(reservation);
 
             return ResponseEntity.status(HttpStatus.OK).body(
@@ -49,5 +51,9 @@ public class BookingService {
             }
         }
         return null;
+    }
+
+    public List<Object[]> getCustomerAndReservationTime(){
+        return reservationRepository.getCustomerAndReservationTime();
     }
 }

@@ -6,6 +6,8 @@ import java.util.Optional;
 import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +27,13 @@ public class BookingController {
     @PostMapping("/add")
     public ResponseEntity<ResponseObject> createReservation(@RequestBody Reservation reservation) {
         return bookingService.createReservation(reservation);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<ResponseObject> getCustomerAndReservationTime(){
+      return ResponseEntity.status(HttpStatus.OK).body(
+              new ResponseObject("ok", "Query successfully", bookingService.getCustomerAndReservationTime())
+      );
     }
 
 }
