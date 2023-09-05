@@ -20,4 +20,8 @@ Dự án này kết hợp sức mạnh của Spring Boot, Spring Security, JWT, 
 - Đăng nhập vào tài khoản chủ nhà hàng để xem doanh thu của quán.
 - Quản lý tài khoản nhân viên, bao gồm thêm, sửa và xoá.
 
-## Cài đặt và Chạy
+## Thành viên
+
+- Nguyễn Thế Bảo
+- Trần Đức Thịnh
+- Đỗ Hoàng Hải
