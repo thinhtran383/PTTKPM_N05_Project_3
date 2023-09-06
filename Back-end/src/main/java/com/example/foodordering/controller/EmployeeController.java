@@ -1,6 +1,7 @@
 package com.example.foodordering.controller;
 
 import com.example.foodordering.entity.Employee;
+import com.example.foodordering.entity.ResponseObject;
 import com.example.foodordering.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,33 +11,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
-    private final EmployeeService employeeService;
+
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+    private EmployeeService employeeService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<ResponseObject> registerEmployee(@RequestBody Employee employee) {
+        Optional<Employee> isExist = Optional.ofNullable(employeeService.findByUsername(employee.getUsername()));
+        if(isExist.isPresent()){
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("false", "Username is exits", "")
+            );
+        }
+
         Employee savedEmployee = employeeService.saveEmployee(employee);
         if (savedEmployee != null) {
-            return new ResponseEntity<>("Employee registered successfully!", HttpStatus.CREATED);
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("ok", "Registration successfully", "")
+            );
         } else {
-            return new ResponseEntity<>("Employee registration failed.", HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new ResponseObject("false", "Registration failed", "")
+            );
         }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginEmployee(@RequestBody Employee request) {
+    public ResponseEntity<ResponseObject> loginEmployee(@RequestBody Employee request) {
         Employee foundEmployee = employeeService.findByUsername(request.getUsername());
         if (foundEmployee != null && employeeService.checkPassword(foundEmployee, request.getPassword())) {
-            return new ResponseEntity<>("Employee login successful!", HttpStatus.OK);
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("ok", "Login successfully", employeeService.findRoleByUsername(request.getUsername()))
+            );
         } else {
-            return new ResponseEntity<>("Employee login failed.", HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                    new ResponseObject("failed", "Login failed", "")
+            );
         }
     }
 
