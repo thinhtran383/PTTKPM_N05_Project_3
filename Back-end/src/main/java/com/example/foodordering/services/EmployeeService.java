@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
@@ -34,5 +36,9 @@ public class EmployeeService {
 
     public EmployeeRole findRoleByUsername(String username){
         return employeeRepository.findRoleByUsername(username);
+    }
+
+    public List<Employee> getAllEmployees(){
+        return employeeRepository.findByRole(EmployeeRole.Employee);
     }
 }
