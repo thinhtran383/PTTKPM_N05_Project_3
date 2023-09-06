@@ -1,12 +1,11 @@
 package com.example.foodordering.controller;
 
-import com.example.foodordering.models.MenuItem;
-import com.example.foodordering.models.ResponseObject;
+import com.example.foodordering.entity.MenuItem;
+import com.example.foodordering.entity.ResponseObject;
 import com.example.foodordering.repositories.MenuItemsRepository;
 import com.example.foodordering.services.MenuItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,10 +1,8 @@
-package com.example.foodordering.models;
+package com.example.foodordering.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @ToString

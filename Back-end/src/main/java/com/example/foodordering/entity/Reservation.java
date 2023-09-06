@@ -1,4 +1,4 @@
-package com.example.foodordering.models;
+package com.example.foodordering.entity;
 
 import com.example.foodordering.constant.ReservationStatus;
 import jakarta.persistence.*;
@@ -28,7 +28,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "TableID")
-    private com.example.foodordering.models.Table table;
+    private com.example.foodordering.entity.Table table;
 
     @Column(name = "ReservationTime", nullable = false)
     private LocalDateTime reservationTime;

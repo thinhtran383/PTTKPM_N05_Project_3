@@ -1,25 +1,17 @@
 package com.example.foodordering.controller;
 
-import java.lang.StackWalker.Option;
-import java.util.Optional;
-
-import com.example.foodordering.models.ResponseObject;
+import com.example.foodordering.entity.ResponseObject;
 import com.example.foodordering.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.foodordering.constant.ReservationStatus;
-import com.example.foodordering.models.Customer;
-import com.example.foodordering.models.Reservation;
-import com.example.foodordering.repositories.CustomerRepository;
-import com.example.foodordering.repositories.ReservationRepository;
+import com.example.foodordering.entity.Reservation;
 
 @RestController
 @RequestMapping("/api/booking")
-@CrossOrigin(origins = "https://localhost:3000")
 public class BookingController {
   @Autowired
   private BookingService bookingService;
@@ -30,9 +22,9 @@ public class BookingController {
     }
 
     @GetMapping("")
-    public ResponseEntity<ResponseObject> getCustomerAndReservationTime(){
+    public ResponseEntity<ResponseObject> getCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus){
       return ResponseEntity.status(HttpStatus.OK).body(
-              new ResponseObject("ok", "Query successfully", bookingService.getCustomerAndReservationTime())
+              new ResponseObject("ok", "Query successfully", bookingService.getCustomerAndReservationTime(filterByStatus))
       );
     }
 

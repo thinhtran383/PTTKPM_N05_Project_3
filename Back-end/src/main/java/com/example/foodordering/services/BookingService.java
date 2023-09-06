@@ -1,9 +1,9 @@
 package com.example.foodordering.services;
 
 import com.example.foodordering.constant.ReservationStatus;
-import com.example.foodordering.models.Customer;
-import com.example.foodordering.models.Reservation;
-import com.example.foodordering.models.ResponseObject;
+import com.example.foodordering.entity.Customer;
+import com.example.foodordering.entity.Reservation;
+import com.example.foodordering.entity.ResponseObject;
 import com.example.foodordering.repositories.CustomerRepository;
 import com.example.foodordering.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import static com.example.foodordering.constant.ReservationStatus.*;
@@ -25,7 +24,7 @@ public class BookingService {
 
     @Autowired
     private ReservationRepository reservationRepository;
-    
+
     private Customer saveOrUpdateCustomer(Customer customer) {
         if (customer != null) {
             Optional<Customer> existingCustomer = customerRepository.findByPhone(customer.getPhone());

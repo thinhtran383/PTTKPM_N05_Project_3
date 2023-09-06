@@ -1,4 +1,4 @@
-package com.example.foodordering.models;
+package com.example.foodordering.entity;
 
 import com.example.foodordering.constant.EmployeeRole;
 import jakarta.persistence.*;

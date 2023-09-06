@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03d0b4f7-c711-4077-a3a3-06ecfe8b8554" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/repositories/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/constant/ReservationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/constant/ReservationStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/constant/TableStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/constant/TableStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/repositories/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/repositories/ReservationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +80,9 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBeansView">
+    <option name="showImplicitBeans" value="false" />
+    <option name="showInfrastructureBeans" value="false" />
+    <option name="showGraph" value="false" />
     <option name="beanDetailsProportion" value="0.3" />
   </component>
   <component name="TaskManager">
@@ -98,11 +103,20 @@
       <workItem from="1693352957138" duration="8444000" />
       <workItem from="1693865391609" duration="282000" />
       <workItem from="1693875440877" duration="377000" />
-      <workItem from="1693934630604" duration="1252000" />
+      <workItem from="1693934630604" duration="12426000" />
+      <workItem from="1693962955145" duration="5173000" />
+      <workItem from="1693968351329" duration="696000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,12 +1,10 @@
-package com.example.foodordering.models;
+package com.example.foodordering.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.springframework.context.annotation.Configuration;
 
 @Entity
 @Table(name = "Customers")

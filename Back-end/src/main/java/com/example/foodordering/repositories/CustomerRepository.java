@@ -1,6 +1,6 @@
 package com.example.foodordering.repositories;
 
-import com.example.foodordering.models.Customer;
+import com.example.foodordering.entity.Customer;
 
 import java.util.Optional;
 

@@ -1,7 +1,7 @@
 package com.example.foodordering.controller;
 
 import com.example.foodordering.constant.TableStatus;
-import com.example.foodordering.models.ResponseObject;
+import com.example.foodordering.entity.ResponseObject;
 import com.example.foodordering.repositories.TableRepository;
 import com.example.foodordering.services.TableService;
 import org.springframework.beans.factory.annotation.Autowired;

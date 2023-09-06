@@ -1,4 +1,4 @@
-package com.example.foodordering.models;
+package com.example.foodordering.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
