@@ -1,7 +1,7 @@
 package com.example.foodordering.controller;
 
 import com.example.foodordering.entity.Employee;
-import com.example.foodordering.entity.ResponseObject;
+import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
