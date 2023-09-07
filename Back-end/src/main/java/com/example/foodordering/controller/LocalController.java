@@ -22,10 +22,6 @@ import java.nio.file.Paths;
 @RequestMapping(path = "")
 public class LocalController {
 
-    @Autowired
-    private MenuItemsRepository menuItemsRepository;
-    @Value("${image.upload.path}")
-    private String imageUploadPath;
 
 //    @GetMapping("")
 //    public ResponseEntity<Resource> getImage() throws MalformedURLException {
