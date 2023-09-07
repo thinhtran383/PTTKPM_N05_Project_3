@@ -18,10 +18,6 @@ public class Table {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TableID")
     private Long id;
-
-    @Column(name = "TableNumber", nullable = false)
-    private int tableNumber;
-
     @Column(name = "Capacity", nullable = false)
     private int capacity;
 
