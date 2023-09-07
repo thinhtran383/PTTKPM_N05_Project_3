@@ -27,5 +27,8 @@ public class MenuItem {
     @Column(name = "QuantityRemaining", nullable = false)
     private int quantityRemaining;
 
+    @Column(name = "ImageUrl", nullable = true)
+    private String imageUrl;
+
 
 }
