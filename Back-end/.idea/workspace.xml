@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03d0b4f7-c711-4077-a3a3-06ecfe8b8554" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/models/MenuItemDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/LocalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/LocalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/MenuItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/MenuItemsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/controller/TableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/entity/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/entity/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/entity/ResponseObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/models/ResponseObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/repositories/MenuItemsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/repositories/MenuItemsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/MenuItemsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/MenuItemsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/TableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/foodordering/services/TableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +115,7 @@
       <workItem from="1693994353308" duration="1271000" />
       <workItem from="1694054616568" duration="11634000" />
       <workItem from="1694084738003" duration="1810000" />
+      <workItem from="1694099887743" duration="2819000" />
     </task>
     <servers />
   </component>

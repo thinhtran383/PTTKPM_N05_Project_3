@@ -63,6 +63,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version> <!-- Phiên bản plugin Maven Compiler -->
+                <configuration>
+                    <source>1.8</source> <!-- Phiên bản nguồn của Java -->
+                    <target>1.8</target> <!-- Phiên bản đích của Java -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
