@@ -3,7 +3,7 @@ package com.example.foodordering.services;
 import com.example.foodordering.constant.ReservationStatus;
 import com.example.foodordering.entity.Customer;
 import com.example.foodordering.entity.Reservation;
-import com.example.foodordering.entity.ResponseObject;
+import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.repositories.CustomerRepository;
 import com.example.foodordering.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
