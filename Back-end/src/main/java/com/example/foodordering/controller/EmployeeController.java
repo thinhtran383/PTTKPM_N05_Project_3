@@ -13,8 +13,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
-
-
     @Autowired
     private EmployeeService employeeService;
 
@@ -59,6 +57,4 @@ public class EmployeeController {
                 new ResponseObject("ok", "Query successfully", employeeService.getAllEmployees())
         );
     }
-
-
 }
