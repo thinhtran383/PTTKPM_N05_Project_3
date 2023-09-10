@@ -41,7 +41,7 @@ public class LocalController {
 
     @GetMapping("")
     public String helloF(){
-        return "Say hello";
+        return "Say hello with my team :)";
     }
 
 
