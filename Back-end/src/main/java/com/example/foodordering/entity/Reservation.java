@@ -28,7 +28,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "TableID")
-    private com.example.foodordering.entity.Table table;
+    private com.example.foodordering.entity.Table tableId;
 
     @Column(name = "ReservationTime", nullable = false)
     private LocalDateTime reservationTime;
