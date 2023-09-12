@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Table(name = "Customers")
 @AllArgsConstructor
+@RequiredArgsConstructor
 @ToString
 @Data
 public class Customer {
