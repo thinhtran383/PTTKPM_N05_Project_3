@@ -11,7 +11,7 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "reservations")
+@Table(name = "Reservations")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @ToString
