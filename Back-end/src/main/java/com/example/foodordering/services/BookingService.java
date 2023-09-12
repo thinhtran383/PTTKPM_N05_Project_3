@@ -72,9 +72,11 @@ public class BookingService {
     public boolean setTable(Long reservationId, Table table){
         Reservation reservation = reservationRepository.findById(reservationId).orElse(null);
         if (reservation != null) {
-            table.setStatus(TableStatus.Booked);
-            reservation.setTableId(table);
+            table.setStatus(TableStatus.Booked); // cap nhat trang thai ban
+            reservation.setStatus(ReservationStatus.Accepted);
+            reservation.setTableId(table); // cap nhat so ban
             reservationRepository.save(reservation);
+            tableRepository.save(table);
             return true;
         }
 
