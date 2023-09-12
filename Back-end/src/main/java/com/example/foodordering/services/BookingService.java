@@ -1,12 +1,15 @@
 package com.example.foodordering.services;
 
 import com.example.foodordering.constant.ReservationStatus;
+import com.example.foodordering.constant.TableStatus;
 import com.example.foodordering.entity.Customer;
 import com.example.foodordering.entity.Reservation;
+import com.example.foodordering.entity.Table;
 import com.example.foodordering.models.BookingDTO;
 import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.repositories.CustomerRepository;
 import com.example.foodordering.repositories.ReservationRepository;
+import com.example.foodordering.repositories.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +30,9 @@ public class BookingService {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    @Autowired
+    private TableRepository tableRepository;
+
     private Customer saveOrUpdateCustomer(Customer customer) {
         if (customer != null) {
             Optional<Customer> existingCustomer = customerRepository.findByPhone(customer.getPhone());
@@ -35,7 +41,7 @@ public class BookingService {
         return null;
     }
 
-    public ResponseEntity<ResponseObject> createReservation(Reservation reservation) {
+    public ResponseEntity<ResponseObject> createReservation(Reservation reservation) { // can sua lai
         try {
             Customer customer = saveOrUpdateCustomer(reservation.getCustomer());
 
@@ -63,23 +69,17 @@ public class BookingService {
         }
     }
 
-//    public ResponseEntity<ResponseObject> getAllCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus) {
-//        List<BookingDTO> result;
-//        String message = "Query successfully";
-//
-//        if (filterByStatus == null) {
-//            result = reservationRepository.getCustomerAndReservationTime();
-//        } else {
-//            result = reservationRepository.getCustomerNameAndPhoneByStatus(filterByStatus);
-//        }
-//
-//        if (result.isEmpty()) {
-//            message = "No data found";
-//        }
-//
-//        ResponseObject responseObject = new ResponseObject("ok", message, result);
-//        HttpStatus httpStatus = result.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK;
-//
-//        return ResponseEntity.status(httpStatus).body(responseObject);
-//    }
+    public boolean setTable(Long reservationId, Table table){
+        Reservation reservation = reservationRepository.findById(reservationId).orElse(null);
+        if (reservation != null) {
+            table.setStatus(TableStatus.Booked);
+            reservation.setTableId(table);
+            reservationRepository.save(reservation);
+            return true;
+        }
+
+        return false;
+    }
+
+
 }
