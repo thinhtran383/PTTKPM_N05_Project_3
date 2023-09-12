@@ -4,5 +4,6 @@ public enum TableStatus {
 
     Available,
 
-    NotAvailable
+    NotAvailable,
+    Booked
 }
