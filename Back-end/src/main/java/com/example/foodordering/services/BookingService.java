@@ -3,6 +3,7 @@ package com.example.foodordering.services;
 import com.example.foodordering.constant.ReservationStatus;
 import com.example.foodordering.entity.Customer;
 import com.example.foodordering.entity.Reservation;
+import com.example.foodordering.models.BookingDTO;
 import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.repositories.CustomerRepository;
 import com.example.foodordering.repositories.ReservationRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static com.example.foodordering.constant.ReservationStatus.*;
@@ -53,11 +55,31 @@ public class BookingService {
 
 
 
-    public List<Object[]> getCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus){ // filter By Status
+    public List<BookingDTO> getCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus){ // filter By Status
         if (filterByStatus == null) {
             return reservationRepository.getCustomerAndReservationTime();
         } else {
             return reservationRepository.getCustomerNameAndPhoneByStatus(filterByStatus);
         }
     }
+
+//    public ResponseEntity<ResponseObject> getAllCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus) {
+//        List<BookingDTO> result;
+//        String message = "Query successfully";
+//
+//        if (filterByStatus == null) {
+//            result = reservationRepository.getCustomerAndReservationTime();
+//        } else {
+//            result = reservationRepository.getCustomerNameAndPhoneByStatus(filterByStatus);
+//        }
+//
+//        if (result.isEmpty()) {
+//            message = "No data found";
+//        }
+//
+//        ResponseObject responseObject = new ResponseObject("ok", message, result);
+//        HttpStatus httpStatus = result.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK;
+//
+//        return ResponseEntity.status(httpStatus).body(responseObject);
+//    }
 }
