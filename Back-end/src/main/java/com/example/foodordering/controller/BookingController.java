@@ -1,5 +1,6 @@
 package com.example.foodordering.controller;
 
+import com.example.foodordering.entity.Table;
 import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,20 @@ public class BookingController {
       return ResponseEntity.status(HttpStatus.OK).body(
               new ResponseObject("ok", "Query successfully", bookingService.getCustomerAndReservationTime(filterByStatus))
       );
+    }
+
+    @PutMapping("/set-Table-{reservationId}")
+    public ResponseEntity<ResponseObject> setTable(@PathVariable Long reservationId, @RequestBody Table table){
+      if(bookingService.setTable(reservationId, table)){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                new ResponseObject("ok","Query successfully", "")
+        );
+      }
+
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+              new ResponseObject("false", "ReservationId not found","")
+      );
+
     }
 
 }
