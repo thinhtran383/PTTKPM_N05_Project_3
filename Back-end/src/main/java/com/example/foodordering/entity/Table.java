@@ -18,8 +18,6 @@ public class Table {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TableID")
     private Long id;
-    @Column(name = "Capacity", nullable = false)
-    private int capacity;
 
     @Column(name = "Status", nullable = false)
     @Enumerated(EnumType.STRING)
