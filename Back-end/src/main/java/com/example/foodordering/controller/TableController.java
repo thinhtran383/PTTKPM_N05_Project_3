@@ -23,9 +23,12 @@ public class TableController {
         );
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateTableStatus-{id}")
     public ResponseEntity<ResponseObject> updateTableStatus(@PathVariable Long id){
-        return null;
+        tableService.changeStatusTable(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                new ResponseObject("ok", "Query successfully","")
+        );
     }
 
 

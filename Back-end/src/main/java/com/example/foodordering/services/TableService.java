@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TableService {
     @Autowired
     private TableRepository tableRepository;
+
+
 
     public List<Table> getAllAvailableTables(@RequestParam(value = "filterByStatus", required = false) TableStatus tableStatus){
         if(tableStatus == null){
@@ -20,5 +23,9 @@ public class TableService {
         } else return tableRepository.findAllTableByStatus(tableStatus);
     }
 
-
+    public void changeStatusTable(Long tableId){
+        Table foundTable = tableRepository.findTableById(tableId);
+        foundTable.setStatus(TableStatus.NotAvailable);
+        tableRepository.save(foundTable);
+    }
 }
