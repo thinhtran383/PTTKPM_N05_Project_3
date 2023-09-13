@@ -31,11 +31,18 @@ public class BookingController {
 
     @PutMapping("/reservationId-{reservationId}")
     public ResponseEntity<ResponseObject> setTable(@PathVariable Long reservationId, @RequestBody Table table, @RequestParam(value = "delete", required = false) boolean delete){
-      if(bookingService.setTable(reservationId, table)){
+      if(bookingService.setTable(reservationId, table, delete) == 1){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(
                 new ResponseObject("ok","Query successfully", "")
         );
       }
+
+      if(bookingService.setTable(reservationId,table,delete) == 2){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                new ResponseObject("ok", "Delete successfully", "")
+        );
+      }
+
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
               new ResponseObject("false", "ReservationId not found","")
       );
