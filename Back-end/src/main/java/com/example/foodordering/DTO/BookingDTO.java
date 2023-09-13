@@ -1,4 +1,4 @@
-package com.example.foodordering.models;
+package com.example.foodordering.DTO;
 
 import com.example.foodordering.constant.ReservationStatus;
 import lombok.AllArgsConstructor;
@@ -22,5 +22,5 @@ public class BookingDTO {
     private String phone;
     private Long tableId;
     private LocalDateTime reservationTime;
-    private ReservationStatus status;
+    private ReservationStatus status;   
 }

@@ -1,7 +1,7 @@
 package com.example.foodordering.controller;
 
+import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.MenuItem;
-import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.MenuItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
