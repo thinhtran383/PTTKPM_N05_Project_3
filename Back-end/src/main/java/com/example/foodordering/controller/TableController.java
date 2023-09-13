@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/table")
 public class TableController {
-    @Autowired // dependency injection
-    TableRepository tableRepository;
+
     @Autowired
     TableService tableService;
     @GetMapping("")
@@ -24,11 +23,23 @@ public class TableController {
     }
 
     @PutMapping("/updateTableStatus-{id}")
-    public ResponseEntity<ResponseObject> updateTableStatus(@PathVariable Long id){
-        tableService.changeStatusTable(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
-                new ResponseObject("ok", "Query successfully","")
-        );
+    public ResponseEntity<ResponseObject> updateTableStatus(@PathVariable Long id, @RequestParam(value = "available", required = false) boolean isAvailable){
+//        tableService.changeStatusTable(id, isAvailable);
+//        return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+//                new ResponseObject("ok", "Query successfully","")
+//        );
+//
+
+        if (tableService.changeStatusTable(id, isAvailable) != 1) {
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                    new ResponseObject("ok", "Query successfully","")
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(
+                    new ResponseObject("ok", "Query successfully", "")
+            );
+        }
+
     }
 
 

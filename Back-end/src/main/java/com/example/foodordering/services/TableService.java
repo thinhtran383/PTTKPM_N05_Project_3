@@ -23,9 +23,17 @@ public class TableService {
         } else return tableRepository.findAllTableByStatus(tableStatus);
     }
 
-    public void changeStatusTable(Long tableId){
+    public int changeStatusTable(Long tableId, boolean isAvailable){
         Table foundTable = tableRepository.findTableById(tableId);
+
+        if(isAvailable){
+            foundTable.setStatus(TableStatus.Available);
+            tableRepository.save(foundTable);
+            return 1; // trang thai set ban trong
+        }
+
         foundTable.setStatus(TableStatus.NotAvailable);
         tableRepository.save(foundTable);
+        return 2; // trang thai set ban co khach
     }
 }
