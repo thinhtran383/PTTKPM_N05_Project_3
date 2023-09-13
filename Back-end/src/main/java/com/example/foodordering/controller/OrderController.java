@@ -1,6 +1,6 @@
 package com.example.foodordering.controller;
 
-import com.example.foodordering.models.ResponseObject;
+import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.example.foodordering.models;
+package com.example.foodordering.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,12 +1,12 @@
 package com.example.foodordering.services;
 
+import com.example.foodordering.DTO.BookingDTO;
+import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.constant.ReservationStatus;
 import com.example.foodordering.constant.TableStatus;
 import com.example.foodordering.entity.Customer;
 import com.example.foodordering.entity.Reservation;
 import com.example.foodordering.entity.Table;
-import com.example.foodordering.models.BookingDTO;
-import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.repositories.CustomerRepository;
 import com.example.foodordering.repositories.ReservationRepository;
 import com.example.foodordering.repositories.TableRepository;

@@ -1,13 +1,13 @@
 package com.example.foodordering.controller;
 
 import com.example.foodordering.entity.Table;
-import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.constant.ReservationStatus;
 import com.example.foodordering.entity.Reservation;
 

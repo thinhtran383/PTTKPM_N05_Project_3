@@ -1,6 +1,6 @@
 package com.example.foodordering.services;
 
-import com.example.foodordering.models.OrderedDTO;
+import com.example.foodordering.DTO.OrderedDTO;
 import com.example.foodordering.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

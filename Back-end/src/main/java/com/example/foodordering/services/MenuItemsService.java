@@ -1,8 +1,7 @@
 package com.example.foodordering.services;
 
+import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.MenuItem;
-import com.example.foodordering.models.MenuItemDTO;
-import com.example.foodordering.models.ResponseObject;
 import com.example.foodordering.repositories.MenuItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
