@@ -69,18 +69,26 @@ public class BookingService {
         }
     }
 
-    public boolean setTable(Long reservationId, Table table){
+    public int setTable(Long reservationId, Table table, boolean isDelete){
         Reservation reservation = reservationRepository.findById(reservationId).orElse(null);
+        if(isDelete){
+            assert reservation != null;
+            reservation.setStatus(Rejected);
+            reservationRepository.save(reservation);
+            return 2;
+        }
+
+
         if (reservation != null) {
             table.setStatus(TableStatus.Booked); // cap nhat trang thai ban
             reservation.setStatus(ReservationStatus.Accepted);
             reservation.setTableId(table); // cap nhat so ban
             reservationRepository.save(reservation);
             tableRepository.save(table);
-            return true;
+            return 1;
         }
 
-        return false;
+        return 0;
     }
 
 
