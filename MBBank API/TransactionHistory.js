@@ -1,0 +1,13 @@
+const fs = require('fs');
+
+// Chuỗi base64 hình ảnh của bạn
+const imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAKAAAAAyCAIAAABUA0cyAAAFIUlEQVR4Xu2XW3rjOgyDs915m010i2cF2YdPLdkSCIK6TZomrf9PDykFULQQtzO328WPZ/te7v99ro+/f7j+j3y23ba1tlOuKXEljWc+Y+VB/PCAP3uutZ1yTYkrV8DfyNQwU+LKFfA3MjXMlLhyBfwk0um09mFckQUni5Pfr4Cfg7rW7jBXwDMsB+xerIlWzsUdXFEKPlb/Hbfb6TNWHsT7B6wYalW8qkm3QxG8ScDuG7q8Vp72X4yKoVbFq5p0O7xbwI9j5WmvgK+ANcGNDLX6XQGnK37I2p92Nq1inOWub2SoVfGqJt0O7xbw48hPO/fMV8BXwJrgRoZaXQGv8eSA8/36xUrPFfBOuvqptT/tWHFWs3iPEfdfH/Cxp6giN1N+Wnpm9ifq9lh+UsBNEyySvFjAuU974TP6XbnCG8FeEbvO3c6HC5htll2xFDA3cqBY8MSA9WD+XF9JkB1hqSPUmTZNyEgBs1qxEDC3CAC3YzzgNF5j7WJXxMVTOUG0yKipcypO0VLrAhrxaVkXg8Yo6akvTcY2sNxnAnY84Q0mVwRaPE1Rzslh2js7vsGsAyVvpD8q2IGJvzRlq3w/oi25pLL7UqJADwyUeY6zMnd3t1AhSwPwC5qi/AAKc4LtUAJmhToFd7sByy8Ny4o9Jcd7yPlosqGZQV0CTqsHBuQR9ONOHHDVDOwiTcVDA65mAAULAbMmUQLmDSIIOAeGKx/tV7bjZ4I6R1TDUsC0RTRFrxcw6m+pJ1UyWU8NmCDgXDQzNFv9ioBx65kBN4gmr8wE7AWF5YDFhHHAu17Vo6MLh47LmXcO+BacWBkOmASZstsIuKC9/m5thVwN0EU0FSpg0/gEBSVgKUYlbT084Fv0XJmxgGk3k7eKUg8MsD1fbG+RqwufmmjtHScBpt8JCrZewA3WAiYVbztBZSBg2sqUBkWpBwa4Qz7a3q2uJMgewbZEaw8DNp0s1mMC3ppGYiFg1iRGNDvBo+ViFHBxF0YC3lyrveTj9BVnPLy9LdZweTvT7f2iKLKy9qe1FfYE+FZ+sUUxotm5h/+i2dSXKdfl+rqAhWtNwOVtP8xYHUVGrnI1WKYXAj8fFbgmfV/q0lmTGNHswP9u2aKevYjl4uYO6raXXJy+IlxNgdc0qzFVGgeMMroC6HQqnx8wQBYJewA9sEV0c3H6ClrkKSjIaIEoBaBcSeMfXgh4eA292Ma5sOeIs7Z3iwJmw+ObZ7raKBCe4OHAobcP7dwFJFdTliRfq7uLm/8wQ/vAs407+C+YAzPE+hl4pnuVU0cIQ4IhP8qYKhGC/WXj5pqwFz3V4EC54ecIiavE92wTC1GDM0D3KewvUmJS0q4o+eMyfPGTB9I9qroef+xIsEnHnVgLkUFJFewF3G3uA+vzLgD/caPHxdASueE/Ak8hRZRK6AFVfAlSvgwXmQXkOJPEUWkdcK+KUWzlY/K4x4hNWH5T4DR79MwAMvaFdgGBk+wgYwkgd3eBbdo6+AB+i1Gprna+gefQU8QK/V0DxfQ/foI+CLH8z/zOXNU3g9tLgAAAAASUVORK5CYII=";
+
+// Chuyển đổi và lưu tệp hình ảnh
+fs.writeFileSync('output.png', imageBase64, 'base64', function(err) {
+  if (err) {
+    console.error('Lỗi khi chuyển đổi và lưu tệp hình ảnh:', err);
+  } else {
+    console.log('Chuyển đổi và lưu tệp hình ảnh thành công.');
+  }
+});
