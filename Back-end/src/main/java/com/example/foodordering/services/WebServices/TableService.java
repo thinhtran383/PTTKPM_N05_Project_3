@@ -1,4 +1,4 @@
-package com.example.foodordering.services;
+package com.example.foodordering.services.webservice;
 
 import com.example.foodordering.constant.TableStatus;
 import com.example.foodordering.entity.Table;

@@ -32,7 +32,7 @@ public class MenuItemsController {
         );
     }
 
-    @GetMapping("/{id}.jpg")
+    @GetMapping("/{id}.jpg") // get image food
     public ResponseEntity<?> getImageById(@PathVariable Long id) throws MalformedURLException {
         Resource image = menuItemService.getImageById(id);
         if(image != null){

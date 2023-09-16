@@ -1,5 +1,6 @@
 package com.example.foodordering.controller;
 
+import com.example.foodordering.DTO.PasswordForgotDTO;
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.Employee;
 import com.example.foodordering.services.EmployeeService;
@@ -52,9 +53,15 @@ public class EmployeeController {
     }
 
     @GetMapping("")
-    public ResponseEntity<ResponseObject> getAllEmployees(){
+    public ResponseEntity<ResponseObject> getAllEmployees(){ // lay toan bo danh sach nhan vien
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("ok", "Query successfully", employeeService.getAllEmployees())
         );
+    }
+
+    @PutMapping("/forgot")
+    public ResponseEntity<ResponseObject> forgotPassword(@RequestBody PasswordForgotDTO request){
+        employeeService.forgotPassword(request.getPassword(), request.getConfirmPassword());
+        return null;
     }
 }

@@ -1,8 +1,9 @@
-package com.example.foodordering.services;
+package com.example.foodordering.services.webservice;
 
 import com.example.foodordering.constant.EmployeeRole;
 import com.example.foodordering.entity.Employee;
 import com.example.foodordering.repositories.EmployeeRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,15 @@ public class EmployeeService {
 
     public List<Employee> getAllEmployees(){
         return employeeRepository.findByRole(EmployeeRole.Employee);
+    }
+
+    public void forgotPassword(String password,String confirmPassword) {
+        if(!password.equals(confirmPassword)){
+            return ;
+        }
+
+
+
+
     }
 }

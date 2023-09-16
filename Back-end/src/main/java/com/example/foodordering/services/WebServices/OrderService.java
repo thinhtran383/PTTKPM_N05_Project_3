@@ -1,4 +1,4 @@
-package com.example.foodordering.services;
+package com.example.foodordering.services.webservice;
 
 import com.example.foodordering.DTO.OrderedDTO;
 import com.example.foodordering.repositories.OrderRepository;
@@ -15,5 +15,5 @@ public class OrderService {
 
   public List<OrderedDTO> customerOrderList(Long tableId){
         return orderRepository.findByTableId(tableId);
-    }
+  }
 }

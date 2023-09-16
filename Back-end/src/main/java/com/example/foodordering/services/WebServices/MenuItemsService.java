@@ -1,4 +1,4 @@
-package com.example.foodordering.services;
+package com.example.foodordering.services.webservice;
 
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.MenuItem;
