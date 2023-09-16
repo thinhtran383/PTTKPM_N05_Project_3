@@ -1,2 +1,14 @@
-package com.example.foodordering.DTO;public class PasswordForgotDTO {
+package com.example.foodordering.DTO;
+
+
+import com.example.foodordering.DTO.BaseDTO.AccountDTO;
+import lombok.*;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@RequiredArgsConstructor
+@AllArgsConstructor
+@ToString()
+public class PasswordForgotDTO extends AccountDTO {
+    private String confirmPassword;
 }
