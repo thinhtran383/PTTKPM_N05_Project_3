@@ -1,9 +1,9 @@
-package com.example.foodordering.controller;
+package com.example.foodordering.controller.WebController;
 
 import com.example.foodordering.DTO.PasswordForgotDTO;
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.Employee;
-import com.example.foodordering.services.EmployeeService;
+import com.example.foodordering.services.WebServices.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

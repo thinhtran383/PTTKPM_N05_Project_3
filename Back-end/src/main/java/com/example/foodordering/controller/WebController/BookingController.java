@@ -1,7 +1,7 @@
-package com.example.foodordering.controller;
+package com.example.foodordering.controller.WebController;
 
 import com.example.foodordering.entity.Table;
-import com.example.foodordering.services.BookingService;
+import com.example.foodordering.services.WebServices.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.foodordering.services.webservice;
+package com.example.foodordering.services.WebServices;
 
 import com.example.foodordering.DTO.OrderedDTO;
 import com.example.foodordering.repositories.OrderRepository;

@@ -1,4 +1,4 @@
-package com.example.foodordering.services.webservice;
+package com.example.foodordering.services.WebServices;
 
 import com.example.foodordering.DTO.BookingDTO;
 import com.example.foodordering.DTO.ResponseObject;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import static com.example.foodordering.constant.ReservationStatus.*;

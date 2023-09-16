@@ -1,8 +1,8 @@
-package com.example.foodordering.controller;
+package com.example.foodordering.controller.WebController;
 
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.MenuItem;
-import com.example.foodordering.services.MenuItemsService;
+import com.example.foodordering.services.WebServices.MenuItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;

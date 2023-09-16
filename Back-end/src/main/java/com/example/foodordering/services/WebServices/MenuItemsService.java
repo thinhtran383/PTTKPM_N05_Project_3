@@ -1,4 +1,4 @@
-package com.example.foodordering.services.webservice;
+package com.example.foodordering.services.WebServices;
 
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.entity.MenuItem;
@@ -12,15 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Base64;
 import java.util.List;
-import java.util.ArrayList;
 
 @Service
 public class MenuItemsService {
