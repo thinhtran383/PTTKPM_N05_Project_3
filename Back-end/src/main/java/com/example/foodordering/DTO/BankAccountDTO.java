@@ -7,7 +7,12 @@ import lombok.*;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@ToString()
+
 public class BankAccountDTO extends AccountDTO {
     private String captcha;
+
+    @Override
+    public String toString() {
+        return "\"userId\":" + "\"" + this.getUsername() + "\"," + "\"password\":" + "\"" + this.getPassword() + "\"," + "\"captcha\":" + "\"" + this.getCaptcha() + "\"";
+    }
 }
