@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@ToString()
+@ToString(callSuper = true)
 public class PasswordForgotDTO extends AccountDTO {
     private String confirmPassword;
 }
