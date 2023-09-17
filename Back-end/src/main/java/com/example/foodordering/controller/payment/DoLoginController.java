@@ -22,14 +22,17 @@ public class DoLoginController {
     private GetCaptchaBase64 getCaptchaBase64;
 
     @GetMapping("/getCaptcha")
-    public ResponseEntity<byte[]> getCaptchaImage(String base64Image) {
+    public ResponseEntity<?> getCaptchaImage() {
+        String base64Image = getCaptchaBase64.getCaptchaImage();
         try {
             byte[] imageBytes = Base64.getDecoder().decode(base64Image);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG);
             return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new ResponseObject("false","Cannot get captcha", "")
+            );
         }
     }
 
