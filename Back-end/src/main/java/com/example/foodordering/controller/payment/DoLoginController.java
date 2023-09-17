@@ -3,6 +3,7 @@ package com.example.foodordering.controller.payment;
 
 import com.example.foodordering.DTO.BankAccountDTO;
 import com.example.foodordering.DTO.ResponseObject;
+import com.example.foodordering.client.MbBank.GetSessionId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Base64;
 
-import com.example.foodordering.client.GetCaptchaBase64;
+import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 
 @RestController
 @RequestMapping("/api/payment")
@@ -20,6 +21,8 @@ public class DoLoginController {
 
     @Autowired
     private GetCaptchaBase64 getCaptchaBase64;
+    @Autowired
+    private GetSessionId getSessionId;
 
     @GetMapping("/getCaptcha")
     public ResponseEntity<?> getCaptchaImage() {
@@ -38,7 +41,11 @@ public class DoLoginController {
 
     @PostMapping("/doLogin")
     public ResponseEntity<ResponseObject> doLogin(@RequestBody BankAccountDTO bankAccount){
-
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("ok","", getSessionId.getSessionId(bankAccount.toString()))
+        );
+//        System.out.println(getSessionId.getRequestJson(bankAccount.toString()));
+//        System.out.println("\n" + getSessionId.getRequestJson());
+//        return null;
     }
 }
