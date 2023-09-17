@@ -60,7 +60,7 @@ public class BookingService {
 
 
 
-    public List<BookingDTO> getCustomerAndReservationTime(@RequestParam(value = "filterByStatus", required = false) ReservationStatus filterByStatus){ // filter By Status
+    public List<BookingDTO> getCustomerAndReservationTime(ReservationStatus filterByStatus){ // filter By Status
         if (filterByStatus == null) {
             return reservationRepository.getCustomerAndReservationTime();
         } else {
