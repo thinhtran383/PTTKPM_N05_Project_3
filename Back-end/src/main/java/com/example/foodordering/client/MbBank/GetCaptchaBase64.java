@@ -1,7 +1,6 @@
-package com.example.foodordering.client;
+package com.example.foodordering.client.MbBank;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.foodordering.client.ApiCallTemplate;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
