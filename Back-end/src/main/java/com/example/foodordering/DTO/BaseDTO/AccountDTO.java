@@ -1,5 +1,6 @@
 package com.example.foodordering.DTO.BaseDTO;
 
+import com.example.foodordering.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
