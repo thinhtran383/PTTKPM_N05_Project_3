@@ -1,6 +1,6 @@
 package com.example.foodordering.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -45,7 +45,6 @@ public class ApiCallTemplate {
                         resultFields.put(field, fieldValue.asText());
                     }
                 }
-
                 return resultFields;
             }
 
@@ -56,7 +55,8 @@ public class ApiCallTemplate {
         return null;
     }
 
-    public Map<String, Object> callApi(HttpMethod httpMethod) {
+    public List<Map<String,Object>> callApi(HttpMethod httpMethod) {
+        List<Map<String,Object>> result = new ArrayList<>();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", authorizationHeader);
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -79,15 +79,18 @@ public class ApiCallTemplate {
 
                 if (listAccount != null && listAccount.isObject()) {
                     Iterator<Map.Entry<String, JsonNode>> iterator = listAccount.fields();
-                    List<String> acct_list = new ArrayList<>();
+                    List<String> accountBankList = new ArrayList<>();
                     while (iterator.hasNext()) {
                         Map.Entry<String, JsonNode> entry = iterator.next();
                         String key = entry.getKey();
-                        acct_list.add(key);
-                        resultFields.put("acct_list", acct_list);
+                        accountBankList.add(key);
+                        resultFields.put("acct_list", accountBankList);
                     }
                 }
-                return resultFields;
+
+                result.add(resultFields);
+                return result;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
