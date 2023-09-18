@@ -5,15 +5,22 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 @Component
 public class GetCaptchaBase64 {
     private static final String apiUrl = "https://online.mbbank.com.vn/api/retail-web-internetbankingms/getCaptchaImage";
-//    private static final String authorizationHeader = "Basic RU1CUkVUQUlMV0VCOlNEMjM0ZGZnMzQlI0BGR0AzNHNmc2RmNDU4NDNm";
+    private static final String authorizationHeader = "Basic RU1CUkVUQUlMV0VCOlNEMjM0ZGZnMzQlI0BGR0AzNHNmc2RmNDU4NDNm";
+    private final List<String> fields = new ArrayList<>(List.of("imageString"));
 
-    public String getCaptchaImage(){
+    public Map<?,?> getCaptchaImage(){
         RestTemplate restTemplate = new RestTemplate();
         ApiCallTemplate apiCallTemplate = new ApiCallTemplate(restTemplate, apiUrl, getRequestJson());
-        return apiCallTemplate.callApi("imageString", HttpMethod.POST);
+       // System.out.println(apiCallTemplate.callApi(fields, HttpMethod.POST));
+        return apiCallTemplate.callApi(fields, HttpMethod.POST);
     }
 
 //    public String getCaptchaImage() {
