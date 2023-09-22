@@ -14,12 +14,12 @@ public class GetCaptchaBase64 {
     private static final String apiUrl = "https://online.mbbank.com.vn/api/retail-web-internetbankingms/getCaptchaImage";
 //    private static final String authorizationHeader = "Basic RU1CUkVUQUlMV0VCOlNEMjM0ZGZnMzQlI0BGR0AzNHNmc2RmNDU4NDNm";
 
-    private List<String> field = new ArrayList<>(List.of("imageString"));
+    private final List<String> fields = new ArrayList<>(List.of("imageString"));
 
     public Map<String, String> getCaptchaImage(){
         RestTemplate restTemplate = new RestTemplate();
         ApiCallTemplate apiCallTemplate = new ApiCallTemplate(restTemplate, apiUrl, getRequestJson());
-        return apiCallTemplate.callApi(field, HttpMethod.POST);
+        return apiCallTemplate.callApi(fields, HttpMethod.POST);
 
     }
 

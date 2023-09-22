@@ -1,11 +1,10 @@
 package com.example.foodordering.DTO;
 
-import com.example.foodordering.constant.ReservationStatus;
+import com.example.foodordering.common.ReservationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 

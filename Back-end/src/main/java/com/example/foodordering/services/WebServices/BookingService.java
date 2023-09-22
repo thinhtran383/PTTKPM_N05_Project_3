@@ -2,8 +2,8 @@ package com.example.foodordering.services.WebServices;
 
 import com.example.foodordering.DTO.BookingDTO;
 import com.example.foodordering.DTO.ResponseObject;
-import com.example.foodordering.constant.ReservationStatus;
-import com.example.foodordering.constant.TableStatus;
+import com.example.foodordering.common.ReservationStatus;
+import com.example.foodordering.common.TableStatus;
 import com.example.foodordering.entity.Customer;
 import com.example.foodordering.entity.Reservation;
 import com.example.foodordering.entity.Table;
@@ -14,12 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.foodordering.constant.ReservationStatus.*;
+import static com.example.foodordering.common.ReservationStatus.*;
 
 @Service
 public class BookingService {

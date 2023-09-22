@@ -1,6 +1,6 @@
 package com.example.foodordering.services.WebServices;
 
-import com.example.foodordering.constant.TableStatus;
+import com.example.foodordering.common.TableStatus;
 import com.example.foodordering.entity.Table;
 import com.example.foodordering.repositories.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;

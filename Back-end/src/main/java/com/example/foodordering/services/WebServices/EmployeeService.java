@@ -1,6 +1,6 @@
 package com.example.foodordering.services.WebServices;
 
-import com.example.foodordering.constant.EmployeeRole;
+import com.example.foodordering.common.EmployeeRole;
 import com.example.foodordering.entity.Employee;
 import com.example.foodordering.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +46,5 @@ public class EmployeeService {
         if(!password.equals(confirmPassword)){
             return ;
         }
-
-
-
-
     }
 }

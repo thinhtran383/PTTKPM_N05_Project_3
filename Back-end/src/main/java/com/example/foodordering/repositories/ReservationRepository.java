@@ -1,7 +1,7 @@
 package com.example.foodordering.repositories;
 
 import com.example.foodordering.DTO.BookingDTO;
-import com.example.foodordering.constant.ReservationStatus;
+import com.example.foodordering.common.ReservationStatus;
 import com.example.foodordering.entity.Reservation;
 
 import org.springframework.data.jpa.repository.JpaRepository;

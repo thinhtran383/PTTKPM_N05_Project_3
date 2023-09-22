@@ -1,6 +1,6 @@
 package com.example.foodordering.entity;
 
-import com.example.foodordering.constant.EmployeeRole;
+import com.example.foodordering.common.EmployeeRole;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;

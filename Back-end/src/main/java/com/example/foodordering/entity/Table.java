@@ -1,6 +1,6 @@
 package com.example.foodordering.entity;
 
-import com.example.foodordering.constant.TableStatus;
+import com.example.foodordering.common.TableStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

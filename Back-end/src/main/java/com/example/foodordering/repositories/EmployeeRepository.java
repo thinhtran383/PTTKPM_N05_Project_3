@@ -1,6 +1,6 @@
 package com.example.foodordering.repositories;
 
-import com.example.foodordering.constant.EmployeeRole;
+import com.example.foodordering.common.EmployeeRole;
 import com.example.foodordering.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

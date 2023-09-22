@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.foodordering.DTO.ResponseObject;
-import com.example.foodordering.constant.ReservationStatus;
+import com.example.foodordering.common.ReservationStatus;
 import com.example.foodordering.entity.Reservation;
 
 @RestController
