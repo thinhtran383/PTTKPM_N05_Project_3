@@ -19,7 +19,14 @@ public class BookingController {
 
     @PostMapping("/add")
     public ResponseEntity<ResponseObject> createReservation(@RequestBody Reservation reservation) {
-        return bookingService.createReservation(reservation);
+      if(bookingService.createReservation(reservation)){
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                new ResponseObject("ok","Create reservation successfully","")
+        );
+      }
+      return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
+              new ResponseObject("false","Cannot create reservation successfully","")
+      );
     }
 
     @GetMapping("")
