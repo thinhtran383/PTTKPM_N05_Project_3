@@ -8,13 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.logging.Handler;
 
 @Component
@@ -87,11 +85,14 @@ public class TransactionHistory {
                     for (JsonNode transactionNode : transactionList) {
                         LocalDateTime transactionDate = LocalDateTime.parse(transactionNode.get("transactionDate").asText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
                         float creditAmount = Float.parseFloat(transactionNode.get("creditAmount").asText());
-                        String description = transactionNode.get("description").asText().substring("CUSTOMER ".length(), "CUSTOMER ".length() + 5);
-                        System.out.println(description);
-                        if(creditAmount == credit){
+                        String description = transactionNode.get("description").asText().substring("CUSTOMER ".length(), "CUSTOMER ".length() + 5).toLowerCase();
+                        System.out.println(content);
+                        System.out.println("1");
+                        if(creditAmount == credit && content.equals(description)){
                             TransactionDTO transactionDTO = new TransactionDTO(transactionDate, creditAmount, description);
                             result.add(transactionDTO);
+
+
                         }
 
                     }
@@ -107,7 +108,17 @@ public class TransactionHistory {
         return false;
     }
 
-    public String getRequestJson(String sessionId){
-        return "{\"accountNo\":\"0857723969\",\"fromDate\":\"25/09/2023\",\"toDate\":\"25/09/2023\",\"sessionId\": \""+ sessionId +"\",\"refNo\": \"VANANHLU-2023091607010697\", \"deviceIdCommon\": \"oankw8vh-mbib-0000-0000-2023090618002619\" }";
+    private String getCurrentDateTime(){
+        LocalDate currentDate = LocalDate.now();
+
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String result = currentDate.format(formatter);
+
+        return result;
+    }
+
+    private String getRequestJson(String sessionId){
+        return "{\"accountNo\":\"0857723969\",\"fromDate\":\""+ getCurrentDateTime() +"\",\"toDate\":\"" + getCurrentDateTime() + "\",\"sessionId\": \""+ sessionId +"\",\"refNo\": \"VANANHLU-2023091607010697\", \"deviceIdCommon\": \"oankw8vh-mbib-0000-0000-2023090618002619\"}";
     }
 }
