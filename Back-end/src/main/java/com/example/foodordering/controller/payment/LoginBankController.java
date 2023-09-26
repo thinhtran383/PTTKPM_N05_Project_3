@@ -5,6 +5,7 @@ import com.example.foodordering.DTO.BankAccountDTO;
 import com.example.foodordering.DTO.QRCodeDTO;
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.client.MbBank.GetSessionId;
+import com.example.foodordering.client.MbBank.TransactionHistory;
 import com.example.foodordering.client.VietQR.GetQrCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/api/BankLogin")
 public class PaymentController {
 
     @Autowired
@@ -23,6 +24,10 @@ public class PaymentController {
     private GetSessionId getSessionId;
     @Autowired
     private GetQrCode getQrCode;
+    @Autowired
+    private TransactionHistory transactionHistory;
+
+    private String sessionId = "d9b8a9f5-a12c-4d77-88a1-db1e056698ab";
 
 
 //    @GetMapping("/getCaptcha") // return image captcha
@@ -42,6 +47,9 @@ public class PaymentController {
 
     @GetMapping("/getCaptcha")
     public ResponseEntity<ResponseObject> getCaptchaImage(){
+//        System.out.println(transactionHistory.getRequestJson("12"));
+//        System.out.println(transactionHistory.callApi(sessionId, 3000f, "1") ? "thanh toan thanh cong" : "");
+//        System.out.println(transactionHistory.getRequestJson("123"));
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("ok", "Query successfully", getCaptchaBase64.getCaptchaImage())
         );
@@ -62,7 +70,6 @@ public class PaymentController {
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("ok", "Query successfully",getQrCode.getQrCode(qrCodeDTO.toString()))
         );
-
     }
 
 //    @PostMapping("/socket")
