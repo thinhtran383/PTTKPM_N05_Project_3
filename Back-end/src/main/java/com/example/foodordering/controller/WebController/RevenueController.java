@@ -1,6 +1,8 @@
 package com.example.foodordering.controller.WebController;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.foodordering.DTO.ResponseObject;
+import com.example.foodordering.DTO.RevenueDTO;
 import com.example.foodordering.services.WebServices.RevenueService;
 
 @RestController
-@RequestMapping("/api/revenue/amount")
+@RequestMapping("/api")
 public class RevenueController {
 
     private final RevenueService revenueService;
@@ -22,25 +26,25 @@ public class RevenueController {
         this.revenueService = revenueService;
     }
 
-    @GetMapping("/day")
-    public ResponseEntity<BigDecimal> getRevenueAmountByDay(@RequestParam("day") int day) {
+    @GetMapping("/revenue")
+    public ResponseEntity<List<RevenueDTO>> getMonthlyRevenue(@RequestParam("year") int year) {
         try {
-            BigDecimal amount = revenueService.getTotalAmountByDay(day);
-            return ResponseEntity.ok(amount);
+            List<RevenueDTO> monthlyRevenue = revenueService.getMonthlyRevenue(year);
+            return ResponseEntity.ok(monthlyRevenue);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
-    @GetMapping("/month")
-    public ResponseEntity<BigDecimal> getRevenueAmountByMonth(@RequestParam("month") int month) {
+    @GetMapping("/revenue/weekly")
+    public ResponseEntity<List<RevenueDTO>> getWeeklyRevenue(
+            @RequestParam("month") int month,
+            @RequestParam("year") int year) {
         try {
-            BigDecimal amount = revenueService.getTotalAmountByMonth(month);
-            return ResponseEntity.ok(amount);
+            List<RevenueDTO> weeklyRevenue = revenueService.getWeeklyRevenue(month, year);
+            return ResponseEntity.ok(weeklyRevenue);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    // Similar method for querying by month can be added
 }
