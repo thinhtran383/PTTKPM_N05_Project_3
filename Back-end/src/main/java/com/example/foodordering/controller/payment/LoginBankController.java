@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 
 @RestController
-@RequestMapping("/api/BankLogin")
-public class PaymentController {
+@RequestMapping("/api/LoginBank")
+public class LoginBankController {
 
     @Autowired
     private GetCaptchaBase64 getCaptchaBase64;
@@ -24,10 +24,10 @@ public class PaymentController {
     private GetSessionId getSessionId;
     @Autowired
     private GetQrCode getQrCode;
-    @Autowired
-    private TransactionHistory transactionHistory;
+//    @Autowired
+//    private TransactionHistory transactionHistory;
 
-    private String sessionId = "d9b8a9f5-a12c-4d77-88a1-db1e056698ab";
+//    private String sessionId = "d9b8a9f5-a12c-4d77-88a1-db1e056698ab";
 
 
 //    @GetMapping("/getCaptcha") // return image captcha
