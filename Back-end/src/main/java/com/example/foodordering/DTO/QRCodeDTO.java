@@ -6,13 +6,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class QRCodeDTO {
-    private String amount;
+    private float amount;
     private String bankAccount;
     private final String bankCode = "MB";
     private String content;
     private final String userBankName = "AB";
+    private String sessionId;
 
-    public QRCodeDTO(String amount, String bankAccount, String content) {
+    public QRCodeDTO(String sessionId, float amount, String bankAccount, String content) {
+        this.sessionId = sessionId;
         this.amount = amount;
         this.bankAccount = bankAccount;
         this.content = content;

@@ -39,7 +39,7 @@ public class BookingService {
         return null;
     }
 
-    public ResponseEntity<ResponseObject> createReservation(Reservation reservation) { // can sua lai
+    public boolean createReservation(Reservation reservation) { // can sua lai
         try {
             Customer customer = saveOrUpdateCustomer(reservation.getCustomer());
 
@@ -47,13 +47,14 @@ public class BookingService {
             reservation.setStatus(Pending);
             reservationRepository.save(reservation);
 
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("ok", "Reservation created successfully", "")
-            );
+//            return ResponseEntity.status(HttpStatus.OK).body(
+//                    new ResponseObject("ok", "Reservation created successfully", "")
+            return true;
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
-                    new ResponseObject("false", "Reservation cannot create", "")
-            );
+//            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
+//                    new ResponseObject("false", "Reservation cannot create", "")
+//            );
+            return false;
         }
     }
 
