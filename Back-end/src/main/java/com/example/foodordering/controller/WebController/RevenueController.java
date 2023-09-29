@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ import com.example.foodordering.DTO.RevenueDTO;
 import com.example.foodordering.services.WebServices.RevenueService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/revenue")
 public class RevenueController {
 
     private final RevenueService revenueService;
@@ -26,25 +28,19 @@ public class RevenueController {
         this.revenueService = revenueService;
     }
 
-    @GetMapping("/revenue")
-    public ResponseEntity<List<RevenueDTO>> getMonthlyRevenue(@RequestParam("year") int year) {
-        try {
-            List<RevenueDTO> monthlyRevenue = revenueService.getMonthlyRevenue(year);
-            return ResponseEntity.ok(monthlyRevenue);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+    @GetMapping("")
+    public ResponseEntity<ResponseObject> getMonthlyRevenue(@RequestParam("year") int year) {
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("ok","Query successfully", revenueService.getMonthlyRevenue(year))
+        );
     }
 
-    @GetMapping("/revenue/weekly")
-    public ResponseEntity<List<RevenueDTO>> getWeeklyRevenue(
+    @GetMapping("/weekly")
+    public ResponseEntity<ResponseObject> getWeeklyRevenue(
             @RequestParam("month") int month,
             @RequestParam("year") int year) {
-        try {
-            List<RevenueDTO> weeklyRevenue = revenueService.getWeeklyRevenue(month, year);
-            return ResponseEntity.ok(weeklyRevenue);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("ok","Query successfully", revenueService.getWeeklyRevenue(month,year))
+        );
     }
 }
