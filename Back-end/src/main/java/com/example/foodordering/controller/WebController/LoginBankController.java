@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 
 @RestController
-@RequestMapping("/api/LoginBank")
+@RequestMapping("/api/login")
 public class LoginBankController {
 
     @Autowired
