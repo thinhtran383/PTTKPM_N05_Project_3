@@ -17,7 +17,6 @@ import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 @RestController
 @RequestMapping("/api/login")
 public class LoginBankController {
-
     @Autowired
     private GetCaptchaBase64 getCaptchaBase64;
     @Autowired

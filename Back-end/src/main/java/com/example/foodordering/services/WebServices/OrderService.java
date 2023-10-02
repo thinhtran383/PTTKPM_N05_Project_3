@@ -2,14 +2,12 @@ package com.example.foodordering.services.WebServices;
 
 import com.example.foodordering.DTO.OrderedDTO;
 import com.example.foodordering.entity.Order;
-import com.example.foodordering.entity.Reservation;
-import com.example.foodordering.entity.Table;
 import com.example.foodordering.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
+
 
 @Service
 public class OrderService {

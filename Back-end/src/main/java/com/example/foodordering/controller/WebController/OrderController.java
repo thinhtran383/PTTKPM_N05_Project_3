@@ -22,15 +22,6 @@ public class OrderController {
         );
     }
 
-//    @PutMapping("/update/{id}")
-//    ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long id){
-//        orderService.updateQuantity(1L,1L);
-//        return ResponseEntity.status(HttpStatus.OK).body(
-////                new ResponseObject("ok", "Update success", orderService.getOrderByTableId(id))
-//                new ResponseObject("ok", "Update success", "")
-//        );
-//    }
-
     @PutMapping("/update/{reservationId}")
     ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long reservationId, @RequestBody Order order){
         System.out.println(order.getMenuItem().getId());

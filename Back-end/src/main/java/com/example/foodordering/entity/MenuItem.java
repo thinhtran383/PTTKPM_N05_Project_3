@@ -24,7 +24,7 @@ public class MenuItem {
     @Column(name = "Price", nullable = false)
     private BigDecimal price;
 
-    @Column(name = "QuantityRemaining", nullable = false)
+    @Column(name = "QuantityRemaining", nullable = false) // bo
     private int quantityRemaining;
 
     @Column(name = "ImageUrl", nullable = true)

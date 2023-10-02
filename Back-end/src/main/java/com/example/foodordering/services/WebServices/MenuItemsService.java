@@ -26,15 +26,26 @@ public class MenuItemsService {
     @Autowired
     private MenuItemsRepository menuItemRepository;
 
-    public ResponseEntity<ResponseObject> addNewItem(@RequestBody MenuItem menuItem) {
+//    public ResponseEntity<ResponseObject> addNewItem(@RequestBody MenuItem menuItem) {
+//        List<MenuItem> isExist = menuItemRepository.findMenuItemByName(menuItem.getName().trim());
+//
+//        if (!isExist.isEmpty()) {
+//            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
+//                    new ResponseObject("false", "Item is existed", ""));
+//        } else {
+//            return ResponseEntity.status(HttpStatus.OK).body(
+//                    new ResponseObject("ok", "Query successfully", menuItemRepository.save(menuItem)));
+//        }
+//    }
+
+    public boolean addNewItem(MenuItem menuItem){
         List<MenuItem> isExist = menuItemRepository.findMenuItemByName(menuItem.getName().trim());
 
-        if (isExist.size() > 0) {
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(
-                    new ResponseObject("false", "Item is existed", ""));
+        if(!isExist.isEmpty()) {
+            return false;
         } else {
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("ok", "Query successfully", menuItemRepository.save(menuItem)));
+            menuItemRepository.save(menuItem);
+            return true;
         }
     }
 

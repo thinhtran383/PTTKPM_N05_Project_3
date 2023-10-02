@@ -28,7 +28,7 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
-    private String sessionId = "169719ca-d51c-4d84-a756-a50f8a08d800";
+    private String sessionId = "86152cf9-4d58-45ad-bc0b-f1c8c8617ff8";
 
     @MessageMapping("payment")
     @SendTo("/topic/result")
@@ -37,7 +37,7 @@ public class PaymentController {
         CompletableFuture<Void> trackingFuture = CompletableFuture.runAsync(() -> {
             boolean conditionMet = false;
             while (!conditionMet) {
-                conditionMet = paymentService.TrackingSuccess(sessionId, qrCodeDTO.getAmount(), qrCodeDTO.getContent());
+                conditionMet = paymentService.TrackingSuccess(sessionId, 1000f, "td145");
                 try {
                     Thread.sleep(2000); // Chờ 1 giây trước khi kiểm tra lại
                 } catch (InterruptedException e) {

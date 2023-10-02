@@ -22,7 +22,15 @@ public class MenuItemsController {
 
     @PostMapping("/add")
     public ResponseEntity<ResponseObject> addNewItem(@RequestBody MenuItem menuItem){
-        return menuItemService.addNewItem(menuItem);
+        if(!menuItemService.addNewItem(menuItem)){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                    new ResponseObject("false", "Item is existed", "")
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject("ok","Query successfully", "")
+            );
+        }
     }
 
     @GetMapping("")
