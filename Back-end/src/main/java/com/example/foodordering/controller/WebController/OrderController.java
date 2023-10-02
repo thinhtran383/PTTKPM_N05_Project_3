@@ -1,6 +1,7 @@
 package com.example.foodordering.controller.WebController;
 
 import com.example.foodordering.DTO.ResponseObject;
+import com.example.foodordering.entity.Table;
 import com.example.foodordering.services.WebServices.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,12 @@ public class OrderController {
         );
     }
 
-    @PostMapping("/update")
-    ResponseEntity<ResponseObject> updateQuantityOrder(){
-        return null;
+    @PutMapping("/update/{id}")
+    ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long id){
+        orderService.updateQuantity(1L,1L);
+        return ResponseEntity.status(HttpStatus.OK).body(
+//                new ResponseObject("ok", "Update success", orderService.getOrderByTableId(id))
+                new ResponseObject("ok", "Update success", "")
+        );
     }
 }
