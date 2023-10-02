@@ -1,6 +1,7 @@
 package com.example.foodordering.controller.WebController;
 
 import com.example.foodordering.DTO.ResponseObject;
+import com.example.foodordering.entity.Order;
 import com.example.foodordering.entity.Table;
 import com.example.foodordering.services.WebServices.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,21 @@ public class OrderController {
         );
     }
 
-    @PutMapping("/update/{id}")
-    ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long id){
-        orderService.updateQuantity(1L,1L);
+//    @PutMapping("/update/{id}")
+//    ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long id){
+//        orderService.updateQuantity(1L,1L);
+//        return ResponseEntity.status(HttpStatus.OK).body(
+////                new ResponseObject("ok", "Update success", orderService.getOrderByTableId(id))
+//                new ResponseObject("ok", "Update success", "")
+//        );
+//    }
+
+    @PutMapping("/update/{reservationId}")
+    ResponseEntity<ResponseObject> updateQuantityOrder(@PathVariable Long reservationId, @RequestBody Order order){
+        System.out.println(order.getMenuItem().getId());
+        System.out.println(order.getQuantity());
+        orderService.updateQuantity(reservationId,order.getMenuItem().getId(), order.getQuantity());
         return ResponseEntity.status(HttpStatus.OK).body(
-//                new ResponseObject("ok", "Update success", orderService.getOrderByTableId(id))
                 new ResponseObject("ok", "Update success", "")
         );
     }

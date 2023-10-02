@@ -27,8 +27,8 @@ public class OrderService {
         return orderRepository.findByReservation_Id(tableId);
     }
 
-    public void updateQuantity(Long menuId, Long quantity){
-        List<Order> orderList = getOrderByTableId(4L);
+    public void updateQuantity(Long reservationId, Long menuId, int quantity){
+        List<Order> orderList = getOrderByTableId(reservationId);
 
         Order targetOrder = orderList.stream()
                 .filter(order -> order.getMenuItem().getId().equals(menuId))
@@ -36,7 +36,7 @@ public class OrderService {
                 .orElse(null);
 
         if(targetOrder != null){
-           targetOrder.setQuantity(3);
+           targetOrder.setQuantity(quantity);
            orderRepository.save(targetOrder);
         }
     }
