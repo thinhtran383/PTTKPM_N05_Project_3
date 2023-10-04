@@ -7,7 +7,6 @@ import org.antlr.v4.runtime.atn.SemanticContext.AND;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.example.foodordering.DTO.WeeklyRevenueDTO;
 import com.example.foodordering.entity.Revenue;
 
 public interface RevenueRepository extends JpaRepository<Revenue, Long> {

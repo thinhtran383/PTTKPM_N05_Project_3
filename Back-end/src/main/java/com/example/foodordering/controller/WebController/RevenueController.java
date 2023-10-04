@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.DTO.RevenueDTO;
-import com.example.foodordering.DTO.WeeklyRevenueDTO;
+
 import com.example.foodordering.services.WebServices.RevenueService;
 
 @RestController

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.foodordering.DTO.RevenueDTO;
-import com.example.foodordering.DTO.WeeklyRevenueDTO;
+
 import com.example.foodordering.repositories.RevenueRepository;
 
 @Service
@@ -43,7 +43,6 @@ public class RevenueService {
 
             revenueDTOList.add(revenueDTO);
         }
-
         return revenueDTOList;
     }
 
