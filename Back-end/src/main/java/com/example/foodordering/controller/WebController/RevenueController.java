@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.foodordering.DTO.ResponseObject;
 import com.example.foodordering.DTO.RevenueDTO;
+
 import com.example.foodordering.services.WebServices.RevenueService;
 
 @RestController
@@ -31,16 +32,12 @@ public class RevenueController {
     @GetMapping("")
     public ResponseEntity<ResponseObject> getMonthlyRevenue(@RequestParam("year") int year) {
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("ok","Query successfully", revenueService.getMonthlyRevenue(year))
-        );
+                new ResponseObject("ok", "Query successfully", revenueService.getMonthlyRevenue(year)));
     }
 
-    @GetMapping("/weekly")
-    public ResponseEntity<ResponseObject> getWeeklyRevenue(
-            @RequestParam("month") int month,
-            @RequestParam("year") int year) {
+    @GetMapping("/this-week")
+    public ResponseEntity<ResponseObject> getLast7DaysRevenue() {
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("ok","Query successfully", revenueService.getWeeklyRevenue(month,year))
-        );
+                new ResponseObject("ok", "Query successfully", revenueService.getThisWeekAmount()));
     }
 }
