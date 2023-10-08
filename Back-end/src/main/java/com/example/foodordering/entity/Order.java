@@ -24,7 +24,7 @@ public class Order {
     @JoinColumn(name = "MenuItemID")
     private MenuItem menuItem;
 
-    @Column(name = "Quantity", nullable = false)
+    @Column(name = "Quantity")
     private int quantity;
 
 }

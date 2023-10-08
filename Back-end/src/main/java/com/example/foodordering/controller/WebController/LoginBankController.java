@@ -17,14 +17,14 @@ import com.example.foodordering.client.MbBank.GetCaptchaBase64;
 @RestController
 @RequestMapping("/api/login")
 public class LoginBankController {
+    public static String bankNameHover;
     @Autowired
     private GetCaptchaBase64 getCaptchaBase64;
     @Autowired
     private GetSessionId getSessionId;
     @Autowired
     private GetQrCode getQrCode;
-//    @Autowired
-//    private TransactionHistory transactionHistory;
+
 
 //    private String sessionId = "d9b8a9f5-a12c-4d77-88a1-db1e056698ab";
 
@@ -56,6 +56,8 @@ public class LoginBankController {
 
     @PostMapping("/doLogin")
     public ResponseEntity<ResponseObject> doLogin(@RequestBody BankAccountDTO bankAccount){
+        bankNameHover = bankAccount.getUsername();
+        System.out.println(bankNameHover);
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("ok","", getSessionId.getSessionId(bankAccount.toString()))
         );

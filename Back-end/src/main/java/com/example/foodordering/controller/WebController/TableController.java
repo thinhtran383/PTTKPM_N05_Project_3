@@ -29,7 +29,7 @@ public class TableController {
 //        );
 //
 
-        if (tableService.changeStatusTable(id, isAvailable) != 1) {
+        if (tableService.changeStatusTable(id, isAvailable) != 1) { // can toi uu lai
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(
                     new ResponseObject("ok", "Query successfully","")
             );

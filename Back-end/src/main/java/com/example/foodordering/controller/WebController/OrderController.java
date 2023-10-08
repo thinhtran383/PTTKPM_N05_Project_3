@@ -18,7 +18,7 @@ public class OrderController {
     @GetMapping("/{id}")
     ResponseEntity<ResponseObject> getAllOrdered(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("ok", "Query successfully",orderService.customerOrderList(id))
+                new ResponseObject("ok", "Query successfully",orderService.cusomterOrderList(id))
         );
     }
 

@@ -70,7 +70,7 @@ public class BookingService {
 
     public int setTable(Long reservationId, Table table, boolean isDelete){
         Reservation reservation = reservationRepository.findById(reservationId).orElse(null);
-        if(isDelete){
+        if(isDelete){ // ton tai delete la reject
             assert reservation != null;
             reservation.setStatus(Rejected);
             reservationRepository.save(reservation);

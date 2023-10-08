@@ -13,11 +13,11 @@ public class QRCodeDTO {
     private final String userBankName = "AB";
     private String sessionId;
 
-    public QRCodeDTO(String sessionId, float amount, String bankAccount, String content) {
-        this.sessionId = sessionId;
+    public QRCodeDTO(float amount, String bankAccount, String content, String sessionId) {
         this.amount = amount;
         this.bankAccount = bankAccount;
         this.content = content;
+        this.sessionId = sessionId;
     }
 
     @Override

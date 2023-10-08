@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class OrderService {
 
@@ -25,6 +24,10 @@ public class OrderService {
         return orderRepository.findByReservation_Id(tableId);
     }
 
+    public List<OrderedDTO> cusomterOrderList(Long reservationId){
+        return orderRepository.findOrderedDTOsByReservationId(reservationId);
+    }
+
     public void updateQuantity(Long reservationId, Long menuId, int quantity){
         List<Order> orderList = getOrderByTableId(reservationId);
 
@@ -32,6 +35,8 @@ public class OrderService {
                 .filter(order -> order.getMenuItem().getId().equals(menuId))
                 .findFirst()
                 .orElse(null);
+
+
 
         if(targetOrder != null){
            targetOrder.setQuantity(quantity);

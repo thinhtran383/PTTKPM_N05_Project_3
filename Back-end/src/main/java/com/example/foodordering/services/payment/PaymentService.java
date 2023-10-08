@@ -9,15 +9,10 @@ public class PaymentService {
     @Autowired
     private TransactionHistory transactionHistory;
 
-    public boolean TrackingSuccess(String sessionId, float credit, String content){
+    public boolean TrackingSuccess(String sessionId, float credit, String content, String bankName, String accountNo){
         while(true){
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
 //            System.out.println(content);
-            if (transactionHistory.callApi(sessionId,credit,content)){
+            if (transactionHistory.callApi(sessionId, credit, content, bankName, accountNo)){
                 break;
             }
         }

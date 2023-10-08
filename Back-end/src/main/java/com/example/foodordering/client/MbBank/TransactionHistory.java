@@ -23,12 +23,53 @@ public class TransactionHistory {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    public List<TransactionDTO> callApi(String sessionId) {
+//    public List<TransactionDTO> callApi(String sessionId) {
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", authorizationHeader);
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//
+//        HttpEntity<String> requestEntity = new HttpEntity<>(getRequestJson(sessionId),headers);
+//
+//        try {
+//            ResponseEntity<String> responseEntity = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class);
+//            if (responseEntity.getStatusCode() == HttpStatus.OK) {
+//                String responseData = responseEntity.getBody();
+//
+//                ObjectMapper objectMapper = new ObjectMapper();
+//
+//                JsonNode rootNode = objectMapper.readTree(responseData);
+//                JsonNode transactionList = rootNode.get("transactionHistoryList");
+//
+//                List<TransactionDTO> result = new ArrayList<>();
+//
+//                if (transactionList.isArray()) {
+//                    for (JsonNode transactionNode : transactionList) {
+//                        LocalDateTime transactionDate = LocalDateTime.parse(transactionNode.get("transactionDate").asText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+//                        float creditAmount = Float.parseFloat(transactionNode.get("creditAmount").asText());
+//                        String description = transactionNode.get("description").asText();
+//
+//                        TransactionDTO transactionDTO = new TransactionDTO(transactionDate, creditAmount, description);
+//                        result.add(transactionDTO);
+//                    }
+//                }
+//
+//                return result;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.err.println("Err: " + e.getMessage());
+//        }
+//        return Collections.emptyList(); // Trả về danh sách trống nếu có lỗi
+//    }
+
+    public Boolean callApi(String sessionId, float credit, String content, String bankName, String accountNo) {
+        int i =0;
+        System.out.println("CALL" + i++ );
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", authorizationHeader);
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<String> requestEntity = new HttpEntity<>(getRequestJson(sessionId),headers);
+        HttpEntity<String> requestEntity = new HttpEntity<>(getRequestJson(sessionId, bankName, accountNo),headers);
 
         try {
             ResponseEntity<String> responseEntity = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class);
@@ -41,45 +82,7 @@ public class TransactionHistory {
                 JsonNode transactionList = rootNode.get("transactionHistoryList");
 
                 List<TransactionDTO> result = new ArrayList<>();
-
-                if (transactionList.isArray()) {
-                    for (JsonNode transactionNode : transactionList) {
-                        LocalDateTime transactionDate = LocalDateTime.parse(transactionNode.get("transactionDate").asText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-                        float creditAmount = Float.parseFloat(transactionNode.get("creditAmount").asText());
-                        String description = transactionNode.get("description").asText();
-
-                        TransactionDTO transactionDTO = new TransactionDTO(transactionDate, creditAmount, description);
-                        result.add(transactionDTO);
-                    }
-                }
-
-                return result;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Err: " + e.getMessage());
-        }
-        return Collections.emptyList(); // Trả về danh sách trống nếu có lỗi
-    }
-
-    public Boolean callApi(String sessionId, float credit, String content) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", authorizationHeader);
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<String> requestEntity = new HttpEntity<>(getRequestJson(sessionId),headers);
-
-        try {
-            ResponseEntity<String> responseEntity = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class);
-            if (responseEntity.getStatusCode() == HttpStatus.OK) {
-                String responseData = responseEntity.getBody();
-
-                ObjectMapper objectMapper = new ObjectMapper();
-
-                JsonNode rootNode = objectMapper.readTree(responseData);
-                JsonNode transactionList = rootNode.get("transactionHistoryList");
-
-                List<TransactionDTO> result = new ArrayList<>();
+                System.out.println(result);
 
                 if (transactionList.isArray()) {
                     for (JsonNode transactionNode : transactionList) {
@@ -88,7 +91,7 @@ public class TransactionHistory {
                         String description = transactionNode.get("description").asText().substring("CUSTOMER ".length(), "CUSTOMER ".length() + 5).toLowerCase();
                         System.out.println(content);
                         System.out.println("1");
-                        if(creditAmount == credit && content.equals(description)){
+                        if(creditAmount == credit){ // bo check content
                             TransactionDTO transactionDTO = new TransactionDTO(transactionDate, creditAmount, description);
                             result.add(transactionDTO);
 
@@ -118,7 +121,8 @@ public class TransactionHistory {
         return result;
     }
 
-    private String getRequestJson(String sessionId){
-        return "{\"accountNo\":\"0857723969\",\"fromDate\":\""+ getCurrentDateTime() +"\",\"toDate\":\"" + getCurrentDateTime() + "\",\"sessionId\": \""+ sessionId +"\",\"refNo\": \"VANANHLU-2023091607010697\", \"deviceIdCommon\": \"oankw8vh-mbib-0000-0000-2023090618002619\"}";
+    public String getRequestJson(String sessionId, String bankName, String accountNo){
+        System.out.println(bankName);
+        return "{\"accountNo\":\""+ accountNo +"\",\"fromDate\":\""+ getCurrentDateTime() +"\",\"toDate\":\"" + getCurrentDateTime() + "\",\"sessionId\": \""+ sessionId +"\",\"refNo\": \""+ bankName.toUpperCase()+"-2023091607010697\", \"deviceIdCommon\": \"oankw8vh-mbib-0000-0000-2023090618002619\"}";
     }
 }
