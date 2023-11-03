@@ -44,11 +44,12 @@ public class PaymentController {
         System.out.println(qrCodeDTO.getSessionId());
         messagingTemplate.convertAndSend("/topic/result", getQrCode.getQrCode(qrCodeDTO.toString()));
         System.out.println(getQrCode.getQrCode(qrCodeDTO.toString()));
+        float totalMoney = qrCodeDTO.getAmount();
         CompletableFuture<Void> trackingFuture = CompletableFuture.runAsync(() -> {
             boolean conditionMet = false;
             while (!conditionMet) {
                 System.out.println("run");
-                conditionMet = paymentService.TrackingSuccess(qrCodeDTO.getSessionId(), 1001f, "", LoginBankController.bankNameHover, qrCodeDTO.getBankAccount());
+                conditionMet = paymentService.TrackingSuccess(qrCodeDTO.getSessionId(), totalMoney, "", LoginBankController.bankNameHover, qrCodeDTO.getBankAccount());
                 try {
                     Thread.sleep(2000); // Chờ 1 giây trước khi kiểm tra lại
                 } catch (InterruptedException e) {
