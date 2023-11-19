@@ -46,6 +46,7 @@ public class LoginBankController {
 
     @GetMapping("/getCaptcha")
     public ResponseEntity<ResponseObject> getCaptchaImage(){
+
 //        System.out.println(transactionHistory.getRequestJson("12"));
 //        System.out.println(transactionHistory.callApi(sessionId, 3000f, "1") ? "thanh toan thanh cong" : "");
 //        System.out.println(transactionHistory.getRequestJson("123"));
@@ -61,8 +62,6 @@ public class LoginBankController {
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject("ok","", getSessionId.getSessionId(bankAccount.toString()))
         );
-
-
     }
 
     @PostMapping("")

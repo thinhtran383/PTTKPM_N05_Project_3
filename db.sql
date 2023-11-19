@@ -16,7 +16,6 @@ CREATE TABLE
         MenuItemID INT AUTO_INCREMENT PRIMARY KEY,
         Name VARCHAR(100) NOT NULL,
         Price DECIMAL(10, 2) NOT NULL,
-        QuantityRemaining INT NOT NULL,
         ImageUrl varchar(255) default null
     );
 
@@ -77,3 +76,10 @@ CREATE TABLE
         Date DATE NOT NULL,
         Amount DECIMAL(10, 2) NOT NULL
     );
+    
+
+
+    
+
+    
+    

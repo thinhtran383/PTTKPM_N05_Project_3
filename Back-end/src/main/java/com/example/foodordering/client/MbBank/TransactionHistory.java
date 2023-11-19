@@ -82,7 +82,7 @@ public class TransactionHistory {
                 JsonNode transactionList = rootNode.get("transactionHistoryList");
 
                 List<TransactionDTO> result = new ArrayList<>();
-                System.out.println(result);
+
 
                 if (transactionList.isArray()) {
                     for (JsonNode transactionNode : transactionList) {
@@ -100,6 +100,7 @@ public class TransactionHistory {
 
                     }
                 }
+                System.out.println(result);
 
                 if(!result.isEmpty()) return true;
 
@@ -111,7 +112,7 @@ public class TransactionHistory {
         return false;
     }
 
-    private String getCurrentDateTime(){
+    public String getCurrentDateTime(){
         LocalDate currentDate = LocalDate.now();
 
 
