@@ -25,7 +25,7 @@ public class PaymentController {
     private final SimpMessagingTemplate messagingTemplate;
 
     @Autowired
-    public PaymentController(SimpMessagingTemplate messagingTemplate){
+    public PaymentController(SimpMessagingTemplate messagingTemplate) {
         this.messagingTemplate = messagingTemplate;
     }
 
@@ -34,23 +34,25 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
-//    private String sessionId = "86152cf9-4d58-45ad-bc0b-f1c8c8617ff8";
+    // private String sessionId = "86152cf9-4d58-45ad-bc0b-f1c8c8617ff8";
 
     @MessageMapping("payment")
     @SendTo("/topic/result")
-    public ResponseObject HandlerPayment(QRCodeDTO qrCodeDTO){
+    public ResponseObject HandlerPayment(QRCodeDTO qrCodeDTO) {
         System.out.println(qrCodeDTO.toString());
         System.out.println(qrCodeDTO);
         System.out.println(qrCodeDTO.getSessionId());
         messagingTemplate.convertAndSend("/topic/result", getQrCode.getQrCode(qrCodeDTO.toString()));
         System.out.println(getQrCode.getQrCode(qrCodeDTO.toString()));
-        float moneyToPay = qrCodeDTO.getAmount();
-        System.out.println(moneyToPay);
+        float totalMoney = qrCodeDTO.getAmount();
         CompletableFuture<Void> trackingFuture = CompletableFuture.runAsync(() -> {
             boolean conditionMet = false;
             while (!conditionMet) {
                 System.out.println("run");
-                conditionMet = paymentService.TrackingSuccess(qrCodeDTO.getSessionId(), moneyToPay, "", LoginBankController.bankNameHover, qrCodeDTO.getBankAccount());
+
+                conditionMet = paymentService.TrackingSuccess(qrCodeDTO.getSessionId(), totalMoney, "",
+                        LoginBankController.bankNameHover, qrCodeDTO.getBankAccount());
+
                 try {
                     Thread.sleep(2000); // Chờ 1 giây trước khi kiểm tra lại
                 } catch (InterruptedException e) {
@@ -60,8 +62,7 @@ public class PaymentController {
         });
 
         trackingFuture.join(); // Đợi cho đến khi công việc trong trackingFuture hoàn thành
-        return new ResponseObject("ok","Payment successfully","");
+        return new ResponseObject("ok", "Payment successfully", "");
     }
-
 
 }
