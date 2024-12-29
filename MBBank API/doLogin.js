@@ -15,7 +15,7 @@ const axiosInstance = axios.create({
 const jsonData = {
 	userId: "vananhlu",
 	password: "Vanh@3897",
-	captcha: "PDKQuV",
+	captcha: "8UBppn",
 	sessionId: null,
 	refNo: "1f5efa846b4e354fb8659b100325f81c-2023091600592659",
 	deviceIdCommon: "oankw8vh-mbib-0000-0000-2023090618002619",

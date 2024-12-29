@@ -34,8 +34,7 @@ public class LocalController {
     @GetMapping("")
     public String helloF(){
 //        System.out.println(transactionHistory.getRequestJson("1","haivuitin"));
-        System.out.println(transactionHistory.getCurrentDateTime()   );
-        return "Say hello with my team :)";
+        return "Say hello with my team :))";
     }
 
 
